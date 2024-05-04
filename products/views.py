@@ -11,9 +11,9 @@ def get_info(request):
     return render(request, 'index.html', context=context)
 
 def get_products(request, pk):
-    products = Products.objects.filter(category=pk)
+    product= Products.objects.filter(category=pk)
     context = {
-        'products': products
+        'products': product
     }
     return render(request, 'products.html', context=context)
 
@@ -55,9 +55,9 @@ def delete_products(request, pk):
 def search_products(request):
     if request.method == 'POST':
         search = request.POST['search']
-        products = Products.objects.filter(name__icontains=search)
+        product = Products.objects.filter(name__icontains=search)
         context = {
-            'products': products
+            'products': product
         }
         return render(request, 'search.html', context=context)
     else:

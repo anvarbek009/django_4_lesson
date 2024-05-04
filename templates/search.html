@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Search Products</title>
 </head>
 <body>
-    {% for i in  %}
+    <h1>Search Products</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Enter product name">
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    {% if products %}
+        <h2>Search Results:</h2>
+        <ul>
+            {% for product in products %}
+                <li>{{ product.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No products found.</p>
+    {% endif %}
 </body>
 </html>
