@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+    <h1>Choose one category</h1>
+    {% for category in categories %}
+        <ul>
+            <li>
+                <a href="{% url 'products:get_products' category.pk %}" >{{ category.name }}</a>
+            </li>
+        </ul>
+        
+    {% endfor %}
+    <!-- <a href="{% url 'products:add_products' %}" ><b>Add Products</b></a><br> -->
+</body>
+</html>

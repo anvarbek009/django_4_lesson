@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+    <div >
+        <img src="{{ product.image.url }}"/><br>
+        Name: {{ product.name }}<br>
+        Price: {{ product.price }}<br>
+        Category: {{ product.category }}<br>
+        Descriptions: {{ product.descriptions }}<hr/>
+
+    <button><a href="{% url 'products:get_info'%}" >Home</a></button><br>
+    <button><a href="{% url 'products:update_products' product.pk %}" >Update</a></button><br>
+    <button><a href="{% url 'products:delete_products' product.pk %}" >Delete</a></button><br>
+    </div>
+    
+</body>
+</html>
